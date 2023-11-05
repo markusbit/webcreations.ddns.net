@@ -435,6 +435,24 @@
         </div>
     </section>
 
+    <?php
+    if (isset($_SESSION['success'])) {
+        if ($_SESSION['success']) {
+            echo '<script type="text/javascript">
+                window.onload = function() {
+                    alert("Form submitted successfully!");
+                }
+            </script>';
+        } else {
+            echo '<script type="text/javascript">
+                window.onload = function() {
+                    alert("Form submitted successfully!");
+                }
+            </script>';
+        }
+    }
+    ?>
+
     <div class="footer">
         <div class="footer-top">
             <div class="container">

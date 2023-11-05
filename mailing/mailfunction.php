@@ -1,55 +1,36 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 require('./vendor/autoload.php');
-require 'mailingvariables.php';
 
 function mailfunction($mail_reciever_email, $mail_reciever_name, $mail_msg, $attachment = false)
 {
 
-    try {
-        $mail = new PHPMailer();
-        $mail->isSMTP();
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com'; 
+    $mail->SMTPAuth = true;
+    $mail->Username = 'bwebcreations@gmail.com'; 
+    $mail->Password = 'bybeadubjjtqcuad '; 
+    $mail->SMTPSecure = 'tls'; 
+    $mail->Port = 587; 
 
-        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
-        $mail->Host = $GLOBALS['mail_host'];
-
-        $mail->Port = $GLOBALS['mail_port'];
-
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-        $mail->SMTPAuth = true;
-
-        $mail->Username = $GLOBALS['mail_sender_email'];
-
-        $mail->Password = $GLOBALS['mail_sender_password'];
-
-        $mail->setFrom($GLOBALS['mail_sender_email'], $GLOBALS['mail_sender_name']);
-
-        $mail->addAddress($mail_reciever_email, $mail_reciever_name);
-
-        $mail->Subject = 'Someone Contacted You!';
-
-        $mail->isHTML($isHtml = true);
-
-        $mail->msgHTML($mail_msg);
+    $mail->setFrom('bwebcreations@gmail.com', $mail_reciever_name);
+    $mail->addAddress('bwebcreations@gmail.com', $mail_reciever_email);
+    $mail->isHTML(true); 
 
 
-        if ($attachment !== false) {
-            $mail->AddAttachment($attachment);
-        }
+    $mail->Subject = 'Neue Anfrage';
+    $mail->Body = $mail_msg;
 
-        $mail->AltBody = 'This is a plain-text message body';
+    $mail->From = 'bwebcreations@gmail.com';
 
-        // Send the email
-        $mail->send();
+    if ($mail->send()) {
         return true; 
-    } catch (Exception $e) {    
-        echo 'Email could not be sent. Error: ' . $mail->ErrorInfo;
-        return false; 
+    } else {
+        // echo 'Die E-Mail konnte nicht gesendet werden. Fehler: ' . $mail->ErrorInfo;
+        return false;
     }
 }
 

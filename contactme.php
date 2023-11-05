@@ -9,8 +9,13 @@
     $body = "<ul><li>Name: ".$name."</li><li>Phone: ".$phone."</li><li>Email: ".$email."</li><li>Message: ".$message."</li></ul>";
 
     $status = mailfunction("", "Company", $body); //reciever
-    if($status)
+    if($status) {
         echo '<center><h1>Thanks! We will contact you soon.</h1></center>';
-    else
+        $_SESSION['success'] = true; 
+        header('Location: index.php'); }
+    else {
         echo '<center><h1>Error sending message! Please try again.</h1></center>';    
+        $_SESSION['success'] = false; 
+        header('Location: index.php'); 
+    }
 ?>
