@@ -151,6 +151,29 @@
 </div>
 -->
 
+<section class="communicate">
+        <h1 class="heading" style="margin-top: -2rem; color: #00bfff;" id="subscribe">Subscribe to Our Service for 40€/month</h1>
+        <div>
+            <div class="subscribe-form">
+                <form id="subscriptionForm">
+                    <input type="email" name="email" placeholder="Enter your email" class="contact-form-email"
+                        required>
+                    <button type="btn" onclick="redirectToStripe()" class="btn">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function redirectToStripe() {
+            var email = document.getElementById("subscriptionForm").elements["email"].value;
+
+            var stripeLink = 'https://buy.stripe.com/cN2cNudOAc4ld44000';
+
+            window.location.href = stripeLink + '?email=' + email;
+        }
+    </script>
+
     <div class="communicate">
         <h3>We don't just build softwares, we build your business.</h3>
         <a href="#contact"><button class="btn">Contact Now</button></a>
@@ -348,29 +371,6 @@
         <h1 class="heading">get in touch</h1>
     </section>
 
-    <section class="subscribe">
-        <h1 class="heading" style="margin-top: -2rem; color: #00bfff;" id="subscribe">Subscribe to Our Service</h1>
-        <div class="row">
-            <div class="subscribe-form">
-                <form id="subscriptionForm">
-                    <input type="email" name="email" placeholder="Enter your email" class="subscribe-form-email"
-                        required>
-                    <button type="button" onclick="redirectToStripe()" class="subscribe-form-btn">Subscribe Now</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function redirectToStripe() {
-            var email = document.getElementById("subscriptionForm").elements["email"].value;
-
-            var stripeLink = 'https://buy.stripe.com/cN2cNudOAc4ld44000';
-
-            window.location.href = stripeLink + '?email=' + email;
-        }
-    </script>
-
     <div class="contact-in">
         <!--
     <div class="contact-map">
@@ -448,11 +448,11 @@
                         <h3>When do I pay?</h3>
                     </div>
                     <div class="accordion-body">
-                        <p>For most projects, equal payments are made at the start, midway, and the end of the project,
+                        <p>For most projects, equal payments are made monthly,
                             but we can work with you to set up a schedule that meets your needs.
                             We understand that this is a big investment and want to help you budget for the expense in
                             whatever way possible.
-                            We accept checks, PayPal, and all major credit cards.</p>
+                            We accept checks and all major credit cards.</p>
                     </div>
                 </div>
             </div>
