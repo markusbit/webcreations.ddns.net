@@ -347,6 +347,30 @@
     <section id="contact" class="contact">
         <h1 class="heading">get in touch</h1>
     </section>
+
+    <section class="subscribe">
+        <h1 class="heading" style="margin-top: -2rem; color: #00bfff;" id="subscribe">Subscribe to Our Service</h1>
+        <div class="row">
+            <div class="subscribe-form">
+                <form id="subscriptionForm">
+                    <input type="email" name="email" placeholder="Enter your email" class="subscribe-form-email"
+                        required>
+                    <button type="button" onclick="redirectToStripe()" class="subscribe-form-btn">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function redirectToStripe() {
+            var email = document.getElementById("subscriptionForm").elements["email"].value;
+
+            var stripeLink = 'https://buy.stripe.com/cN2cNudOAc4ld44000';
+
+            window.location.href = stripeLink + '?email=' + email;
+        }
+    </script>
+
     <div class="contact-in">
         <!--
     <div class="contact-map">
