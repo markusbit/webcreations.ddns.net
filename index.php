@@ -151,7 +151,7 @@
 </div>
 -->
 
-<section class="communicate">
+<section id="subscribe" class="communicate">
         <h1 class="heading" style="margin-top: -2rem; color: #00bfff;" id="subscribe">Subscribe to Our Service for 40€/month</h1>
         <div>
             <div class="subscribe-form">
